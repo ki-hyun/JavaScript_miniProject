@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>게시판</title>
+<style>
+
+body {
+	background: /* url(dark.jpg), */ url(joker.jpg) , url(bat.jpg);
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-position: -50px 50px , 1000px 600px;
+ 	background-color: #000; 
+}
+
+table.ex1 {
+	margin-left: 10px;
+	text-align: left;
+	border-collapse: collapse
+}
+
+.ex1 tr td {
+	background: dimgrey;
+}
+
+.ex1 tr td:hover {
+	background: #F3F5BB
+}
+
+#boardTable {
+	background: #000;
+	color: #fff;
+	text-align: center;
+	border-right: 1px solid #fff;
+	position: relative;
+	top: -20px;
+}
+
+#reviewDetail {
+/* 	border: 1px solid blue; */
+	position: relative;
+	top: -70px;
+}
+
+#review {
+/* 	border: 2px solid gold; */
+	height: 200px;
+	position: relative;
+	top: -20px;
+	padding-top: 0px;
+	/* background-color: #eee8aa; */
+}
+
+#th2 {
+	width: 500px;
+}
+
+form {
+	text-align: left;
+/* 	border: 1px solid red; */
+	position: relative;
+	top: -20px;
+}
+
+#footer {
+	position: apsolute;
+	border: 3px solid Lightgray;
+	height: 370px;
+	border-radius: 10px;
+	background-color: #f0f0f0;
+}
+</style>
+</head>
+
+<body>
+<!-- 게시판 목록 -->
+
+<div id='footer'>
+<div id='review'>
+<h4>영화 리뷰</h4>
+
+<table class='ex1' id='boardTable' border='1'>
+<tr>
+  <th id='th1'>번호</th>
+  <th id='th2'>제목</th>
+  <th id='th3'>작성자</th>
+  <th id='th4'>등록일</th>
+  <th id='th5'>조회수</th>
+</tr>
+
+</table>
+</div>
+<div id='reviewDetail'>
+<hr>
+
+<h3>리뷰 정보</h3>
+<form>
+
+<table>
+<tr class="detail ex2">
+  <th>번호</th> 
+  <td><input type="text" id="no"></td>
+</tr>
+<tr>
+  <th>제목</th> 
+  <td><input type="text" id="title"></td>
+</tr>
+<tr> 
+  <th>내용</th> 
+  <td><textarea id="content"></textarea></td>
+</tr>
+<tr>
+  <th>작성자</th> 
+  <td><input type="text" id="writer"></td>
+</tr>
+<tr class="create">
+  <th>암호</th> 
+  <td><input type="password" id="password"></td>
+</tr>
+<tr class="detail">
+  <th>등록일</th> 
+  <td><input type="text" id="date"></td>
+</tr>
+</table>
+<button id='btnAdd' type='button' class='create'>추가</button>
+<button id='btnChange' type='button' class='detail'>변경</button>
+<button id='btnDelete' type='button' class='detail'>삭제</button>
+<button id='btnCancel' type='reset'>취소</button>
+</form>
+</div>
+</div>
+<!-- 목표: 자바스크립트와 HTML 소스 분리 -->
+<script src='test69_common.js'></script>
+<script src='test69.js'></script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
