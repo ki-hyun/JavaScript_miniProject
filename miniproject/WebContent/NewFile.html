@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+                     <script>
+  var noticeSave = 0;
+  function noticeInit(id){
+    var $j = jQuery;
+    var obj = $j("#"+id);
+    var objC = obj.find(">li");
+    var objCC = objC.find(">ul");
+    var contentTop = 30;//컨텐츠의 위치값(TOP)
+    
+    //set(스크립트 비활성화시를 위한 css조작)
+    obj.css("overflow","hidden");
+    objC.css("float","left");
+    objCC.css({"position":"absolute","left":"0px","top":contentTop+"px"});
+    
+    //초기값설정
+    objCC.hide().eq(0).show();  
+    noticeMenuOver(0,id);
+    
+    //마우스 오버, 컨텐츠 오버
+    objC.find(">a").bind("click",function(){
+      var cnt = objC.find(">a").index($j(this));
+      objCC.hide().eq(cnt).show();
+      noticeMenuOver(cnt,id);
+    });
+    
+  }
+  //탭 오버
+  function noticeMenuOver(cnt,id){
+    var $j = jQuery;
+    var obj = $j("#"+id);
+    var objC = obj.find(">li");
+    var objCC = objC.find(">ul"); 
+    var newTab = objC.eq(cnt).find(">a"); 
+    var newTabImg = newTab.find(">img").get(0);
+    var oldTab = objC.eq(noticeSave).find(">a");  
+    var oldTabImg = oldTab.find(">img").get(0);
+    
+    oldTabImg.src = oldTabImg.src.replace("_on.gif",".gif");
+    newTabImg.src = newTabImg.src.replace(".gif","_on.gif");  
+    
+    noticeSave = cnt;
+  }
+  </script>
+
+
+
+
+<script>
+  function loginReg()
+  {
+    if ( loginForm.log_id.value == "")
+    {
+      alert("아이디를 입력하십시오.");
+      loginForm.log_id.focus();
+      return false;
+    }
+
+    if ( loginForm.log_pw.value == "")
+    {
+      alert("비밀번호를 입력하십시오.");
+      loginForm.log_pw.focus();
+      return false;
+    }
+  }
+  function popup_window(url, target, width, height, top, left, scrollbars) {
+   
+    popupWindow = window.open(url, target, "width=" + width + ",height=" + height + ",scrollbars=" + scrollbars + ",toolbar=0,location=0,resizable=0,directories=0,status=no,menubar=0,top="+top+",left="+left);
+    popupWindow.opener = self; 
+   
+  }
+  function getCookie( name ) 
+  { 
+      var nameOfCookie = name + "="; 
+      var x = 0; 
+      while ( x <= document.cookie.length ) 
+      { 
+          var y = (x+nameOfCookie.length); 
+          if ( document.cookie.substring( x, y ) == nameOfCookie ) { 
+              if ( (endOfCookie=document.cookie.indexOf( ";", y )) == -1 ) 
+                  endOfCookie = document.cookie.length; 
+              return unescape( document.cookie.substring( y, endOfCookie ) ); 
+          } 
+          x = document.cookie.indexOf( " ", x ) + 1; 
+          if ( x == 0 ) 
+              break; 
+      } 
+      return ""; 
+  } 
+</script>
+</body>
+</html>

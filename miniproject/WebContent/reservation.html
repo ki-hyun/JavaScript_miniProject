@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+
+ 
+
+<html>
+
+ 
+
+<head>
+
+ 
+
+<meta charset="UTF-8">
+
+ 
+
+<title>예약</title>
+
+ 
+
+<style>
+
+ 
+
+ul{
+
+padding : 100px;
+
+height : 100px;
+
+border : solid 1px black;
+
+margin : 20px;
+
+}
+
+ 
+
+.seatOn {
+
+  padding: 10px;
+
+  margin-left: 10px;
+
+  border: 1px solid black;
+
+  width: 50px;
+
+  height: 40px;
+
+  /*margin : 5px;
+
+  width : 30px;
+
+  height: 30px;*/
+
+  background-image: url(seatOnIcon.jpg);
+
+}
+
+ 
+
+.seatOff {
+
+  padding: 10px;
+
+  margin-left: 10px;
+
+  border: 1px solid black;
+
+  width: 50px;
+
+  height: 40px;
+
+}
+
+</style>
+
+ 
+
+</head>
+
+ 
+
+<body>
+
+<ul id = 'seatStateUl'>
+
+ 
+
+</ul>
+
+ 
+
+<input id='indextest'>
+
+<input id='statetest'>
+
+ 
+
+<button type='button' id='check' class='seatOption'>확인</button>
+
+<button type='button' id='cancel' class='seatOption'>취소</button> 
+
+ 
+
+<script> 
+
+"use strict"
+
+ 
+
+var currSeat = null;
+
+ 
+
+document.getElementById('check').onclick = function(e){ 
+
+  currSeat.state = 'on';
+
+  ChangeImage('seatOn');
+
+}
+
+    
+
+ChangeDisPlay('..');
+
+MakeSeatNum();
+
+ 
+
+ 
+
+function ChangeImage(state){
+
+   var Image  {
+
+     seatOn : 'none' 
+
+   }
+
+   
+
+   Image.seatOn 
+
+}
+
+ 
+
+function MakeSeatNum() {
+
+ 
+
+var numState = new Array();
+
+ 
+
+  for (var i = 0; i < 40; i++) {
+
+ 
+
+    numState[i] = {
+
+ 
+
+      seateNum : i + 1,
+
+ 
+
+      state : 'none'
+
+    }
+
+  }
+
+ 
+
+  for (var i = 0; i < numState.length; i++) {
+
+ 
+
+    /* console.log(numState[i].seateNum); */
+
+ 
+
+  }
+
+ 
+
+  for (var i = 0; i < numState.length; i++) {
+
+    var seatBox = [];
+
+    seatBox += ('seatBox' + String(i));
+
+    var seatStateUl = document.getElementById('seatStateUl');
+
+    var ins = document.createElement('ins');
+
+    var a = document.createElement('a');
+
+    ins.id = seatBox[i];
+
+    a.setAttribute('seateNum', i);
+
+    a.setAttribute('id', seatBox);
+
+    a.setAttribute('class','seatOff');
+
+    a.setAttribute('state', numState[i].state);
+
+    a.href = '#';
+
+    a.innerHTML = numState[i].seateNum;
+
+    a.onclick = ClickTest;
+
+    ins.appendChild(a);
+
+    seatStateUl.appendChild(ins);
+
+  }
+
+  
+
+  
+
+//좌석 클릭!  예매하기
+
+function ClickTest() {
+
+  event.preventDefault();
+
+  
+
+  currSeat = numState[this.getAttribute('seateNum')];
+
+  
+
+   
+
+  if(currSeat.state == 'on'){
+
+     alert('이미 예약된 좌석입니다');
+
+  }
+
+  
+
+  
+
+  document.getElementById('indextest').value = currSeat.seateNum;
+
+  document.getElementById('statetest').value = currSeat.state;
+
+  ChangeState('seatOption');
+
+  
+
+}
+
+}
+
+ 
+
+ 
+
+ 
+
+function ChangeDisplsy(state) {
+
+  var stateMap = {
+
+    seatOption : 'none'
+
+  };
+
+ 
+
+  stateMap[state] = '';
+
+ 
+
+  var seatOptionClass = document.querySelectorAll('.seatOption');
+
+ 
+
+  for (var i = 0; i < seatOptionClass.length; i++) {
+
+    seatOptionClass[i].style.display = stateMap.seatOption;
+
+  }
+
+}
+
+ 
+
+ 
+
+ 
+
+</script>
+
+ 
+
+</body>
+
+ 
+
+</html>

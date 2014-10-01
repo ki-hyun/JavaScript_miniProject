@@ -1,0 +1,153 @@
+<!DOCTYPE html>  
+<html>  
+<head>  
+<meta charset="UTF-8">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>  
+  <style type="text/css">  
+    table {width:500px;}  
+    .hide {display:none;}  
+    .show {display:table-row;}  
+    .item td {cursor:pointer;}  
+    
+    table.ex1 {
+  margin-left: 10px;
+  text-align: left;
+  border-collapse: collapse
+}
+body {
+  background: /* url(dark.jpg), */ url(joker.jpg) , url(bat.jpg);
+  background-size: 500px;
+  background-repeat: no-repeat;
+  background-position: -50px 50px , 1000px 600px;
+  background-color: #000; 
+}
+
+.ex1 tr td {
+  background: dimgrey;
+}
+
+.ex1 tr td:hover {
+  background: #F3F5BB
+}
+
+#boardTable {
+  background: #000;
+  color: #fff;
+  text-align: center;
+  border-right: 1px solid #fff;
+  position: relative;
+  top: -20px;
+}
+
+#reviewDetail {
+/*  border: 1px solid blue; */
+  position: relative;
+  top: -70px;
+}
+
+
+#footer {
+  position: apsolute;
+  border: 3px solid Lightgray;
+  height: 370px;
+  border-radius: 10px;
+  background-color: #f0f0f0;
+}
+
+
+#review {
+/*  border: 2px solid gold; */
+  height: 200px;
+  position: relative;
+  top: -20px;
+  padding-top: 0px;
+  /* background-color: #eee8aa; */
+}
+
+
+#th2 {
+  width: 500px;
+}
+
+form {
+  text-align: left;
+/*  border: 1px solid red; */
+  position: relative;
+  top: -20px;
+}
+
+    
+   </style>  
+</head>  
+<body>  
+    <div id='footer'>
+    <table cellspacing="0" border="1" class="recruit ex1" >  
+        <caption>리뷰내용</caption>  
+        <colgroup>  
+            <col width="8%">  
+            <col width="60%">  
+            <col width="15%">  
+            <col width="18%">  
+        </colgroup>  
+        <thead>  
+            <tr class="">  
+                <th scope="col">번호</th>  
+                <th scope="col">제목</th>  
+                <th scope="col">작성자</th>  
+                <th scope="col">등록일</th>  
+            </tr>  
+        </thead>  
+        <tbody>  
+            <tr class="item">  
+                <td>1</td>  
+                <td>꿀잼</td>  
+                <td>홍길동</td>  
+                <td>2014-10-1</td>  
+            </tr>  
+            <tr class="hide">  
+                <td colspan="4">  
+                   11111111111111 
+                </td>  
+            </tr>  
+            <tr class="item">  
+                <td>2</td>  
+                <td>꿀잼</td>  
+                <td>홍길동</td>  
+                <td>2014-10-1</td>  
+            </tr>  
+            <tr class="hide">  
+                <td colspan="4">  
+                   11111111111111111
+                </td>  
+            </tr>  
+            <tr class="item">  
+                <td>3</td>  
+                <td>꿀잼</td>  
+                <td>홍길동</td>  
+                <td>2014-10-1</td>  
+            </tr>  
+            <tr class="hide">  
+                <td colspan="4">  
+                   11111111111111111111
+                </td>  
+            </tr>  
+        </tbody>  
+    </table>  
+    <script type="text/javascript">  
+        $(function(){  
+            var article = (".recruit .show");  
+            $(".recruit .item  td").click(function() {  
+                var myArticle =$(this).parents().next("tr");  
+                if($(myArticle).hasClass('hide')) {  
+                    $(article).removeClass('show').addClass('hide');  
+                    $(myArticle).removeClass('hide').addClass('show');  
+                }  
+                else {  
+                    $(myArticle).addClass('hide').removeClass('show');  
+                }  
+            });  
+        });  
+    </script>  
+    </div>
+</body>  
+</html>  

@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+<script
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<style type="text/css">
+
+
+
+
+table {
+	width: 500px;
+}
+
+#reviewDetail {
+	color: white;
+}
+
+.item td {
+	cursor: pointer;
+}
+
+table.ex1 {
+	margin-left: 10px;
+	text-align: left;
+	border-collapse: collapse
+}
+
+h1 {
+	padding: 0px;
+	color: #fff;
+	font-family: URW Chancery L;
+	font-size: 400%;
+}
+
+#head {
+	/*   border: 2px solid red; */
+	height: 200px;
+}
+
+body {
+	background: /* url(dark.jpg), */ url(joker.jpg), url(bat.jpg);
+	background-size: 500px;
+	background-repeat: no-repeat;
+	background-position: -100px 50px, 500px 500px;
+	background-color: #000;
+}
+
+html, body {
+	height: 100%;
+}
+
+#header {
+	height: 20%;
+	/*  background-color: black; */
+	border: solid 1px;
+	/*  border-color: white; */
+	color: white;
+}
+
+#contents {
+/* 	float: left;*/
+	width: 20%;
+	border-color: white;
+	border: solid 1px;
+ /*  background-color: gray; */
+	height: 50%;
+	color: white;
+	border-radius: 10px;
+}
+
+#views {
+	position: absolute;
+	right: 400px;
+	top: 300px;	
+	height: 50%;
+	width: 40%;
+
+}
+
+#state {
+	position: absolute;
+	top: 300px;
+	right: -30px;
+	height: 50%;
+	width: 39%;
+/* 	border-color: white; 
+	/* border: solid 1px; */
+	/* background-color: gray; */
+}
+
+#board {
+	width: 100%;
+	height: 30%;
+	border-color: white;
+	/* border: solid 1px white; */
+	float: left;
+}
+
+margin-left
+:
+
+10
+px
+;
+text-align
+:
+
+left
+
+
+;
+border-collapse
+:
+
+ 
+
+collapse
+
+
+
+
+}
+.ex1 tr td {
+	background: dimgrey;
+}
+
+.ex1 tr td:hover {
+	background: #F3F5BB
+}
+
+#boardTable {
+	background: #fff;
+	color: #000;
+	text-align: center;
+	border-right: 1px solid #000;
+	position: relative;
+	top: 80px;
+}
+
+#reviewDetail {
+	/*  border: 1px solid blue; */
+	position: relative;
+	top: 0px;
+}
+
+#footer {
+/* 	position: apsolute;
+	border: 3px solid Lightgray;
+	height: 300px;
+	border-radius: 10px;
+	background-color: #f0f0f0; */
+}
+
+#review {
+	/*  border: 2px solid gold; */
+	height: 200px;
+	position: relative;
+	top: -20px;
+	padding-top: 0px;
+	/* background-color: #eee8aa; */
+}
+
+#th2 {
+	width: 500px;
+}
+#th1 {
+  width: 50px;
+}
+
+#th3 {
+  width: 100px;
+}
+#th4 {
+  width: 150px;
+}
+#th5 {
+  width: 100px;
+
+}
+form {
+	text-align: left;
+	/*  border: 1px solid red; */
+	position: relative;
+	top: 0px;
+}
+
+#foot {
+  position: relative;
+  top: 0px;
+	
+}
+
+#reviewTitle {
+
+  position: relative;
+  top: -160px;
+
+}
+
+button{
+  position: relative;
+  top: 50px;
+
+}
+
+#HM {
+/* border: 1px solid red; */
+  position: relative;
+  right: -110px;
+  top: -155px;
+}
+#HJ {
+/* border: 1px solid red; */
+  position: relative;
+  right: -110px;
+  top: -155px;
+}
+#LC {
+/*  border: 1px solid red;  */
+  position: relative;
+  width: 105px;
+  top: -310px;
+}
+
+</style>
+</head>
+<body>
+	<div id='head'>
+		<h1>Cinema Paradiso</h1>
+
+<!-- <h3><a href="javascript:changeIframeUrl('http://www.youtube.com/embed/a1UrgyTaSYo')">해무</a></h3>
+    <h3 id='tab3' type="radio" name="tab">해적</h3>
+    <h3 id='tab4' type="radio" name="tab">루시</h3> -->
+
+	</div>
+	<div id='contents'>
+	   <h2>현재 상영작</h2>
+		<div id='GD'><img id="imgGD" src="GD.jpg" height= 150px;  /></div> 
+		<div id='HM'><img id="imgHM" src="HM.jpg" height= 150px; /></div>
+		<div id='HJ'><img id="imgHJ" src="HJ.jpg" height= 150px; /></div>
+		<div id='LC'><img id="imgLC" src="LC.jpg" height= 150px; /></div>
+	</div>
+	<div id='views'>
+<iframe width="420" height="300"
+src="http://www.youtube.com/embed/a1UrgyTaSYo?&autoplay=1"  id="PayIFrame">  <!-- http://www.youtube.com/embed/q1AllhSvrgY -->
+</iframe>
+	</div>
+	<div id='state'>
+	 <button id='rsvBtn' type='button'>예약하기</button>
+				
+		
+	</div>
+
+	<div id='footer'>
+		<div id='review'>
+			<h4>영화 리뷰</h4>
+<hr>
+			<table class='ex1' id='boardTable' border='1'>
+				<tr>
+					<th id='th1'>번호</th>
+					<th id='th2'>제목</th>
+					<th id='th3'>작성자</th>
+					<th id='th4'>등록일</th>
+					<th id='th5'>조회수</th>
+				</tr>
+
+			</table>
+		</div>
+		<div id='reviewDetail'>
+			
+      <div id='reviewTitle'>
+			<h3>리뷰 정보</h3>
+			</div>
+			<form>
+
+				<table id='foot'>
+					<tr class="detail ex2">
+						<th>번호</th>
+						<td><input type="text" id="no"></td>
+					</tr>
+					<tr>
+						<th>제목</th>
+						<td><input type="text" id="title"></td>
+					</tr>
+					<tr>
+						<th>내용</th>
+						<td><textarea id="content"></textarea></td>
+					</tr>
+					<tr>
+						<th>작성자</th>
+						<td><input type="text" id="writer"></td>
+					</tr>
+					<tr class="create">
+						<th>암호</th>
+						<td><input type="password" id="password"></td>
+					</tr>
+					<tr class="detail">
+						<th>등록일</th>
+						<td><input type="text" id="date"></td>
+					</tr>
+				</table>
+				<div id='button'>
+				<button id='btnAdd' type='button' class='create'>추가</button>
+				<button id='btnChange' type='button' class='detail'>변경</button>
+				<button id='btnDelete' type='button' class='detail'>삭제</button>
+				<button id='btnCancel' type='reset'>취소</button>
+			</div>
+			</form>
+		</div>
+	</div>
+	<!-- 목표: 자바스크립트와 HTML 소스 분리 -->
+	<script src='test69_common.js'></script>
+	<script src='test69.js'></script>
+
+	<script>
+"use strict"
+/*  function changeIframeUrl(url){
+	
+	document.frames("ifrm").src=url;
+} */
+
+document.getElementById('GD').onclick = function(){
+alert('군도 예고편보기')
+ * $("#PayIFrame").attr("src", "http://www.youtube.com/embed/q1AllhSvrgY?&autoplay=1");
+ 
+	
+}
+
+document.getElementById('HM').onclick = function(){
+	alert('해무 예고편보기')
+	 * $("#PayIFrame").attr("src", "http://www.youtube.com/embed/a1UrgyTaSYo?&autoplay=1");
+	 
+	  
+	}
+
+"http://www.youtube.com/embed/elh95eZg_cY"
+document.getElementById('HJ').onclick = function(){
+  alert('해적 예고편보기')
+   * $("#PayIFrame").attr("src", "http://www.youtube.com/embed/elh95eZg_cY?&autoplay=1");
+   
+    
+  }
+	
+document.getElementById('LC').onclick = function(){
+	  alert('루시 예고편보기')
+	   * $("#PayIFrame").attr("src", "http:///www.youtube.com/embed/MVt32qoyhi0?&autoplay=1");
+	   
+	    
+	  }
+
+
+
+ 
+</script>
+</body>
+</html>
