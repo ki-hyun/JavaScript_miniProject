@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="EUC-KR">
-<title>Insert title here</title>
+<title>cinema paradiso</title>
 <script
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
 <style type="text/css">
@@ -13,6 +13,7 @@
 table {
 	width: 500px;
 }
+
 
 #reviewDetail {
 	color: white;
@@ -190,7 +191,7 @@ form {
 #foot {
   position: relative;
   top: 0px;
-	
+
 }
 
 #reviewTitle {
@@ -225,6 +226,10 @@ button{
   top: -310px;
 }
 
+ .foot tr th {
+   font-family: FreeMono; 
+}
+
 </style>
 </head>
 <body>
@@ -249,7 +254,7 @@ src="http://www.youtube.com/embed/a1UrgyTaSYo?&autoplay=1"  id="PayIFrame">  <!-
 </iframe>
 	</div>
 	<div id='state'>
-	 <button id='rsvBtn' type='button'>예약하기</button>
+	 <button id='rsvBtn' type='button'><a href='reserviation1.html'>예약하기</a></button>
 				
 		
 	</div>
@@ -278,27 +283,27 @@ src="http://www.youtube.com/embed/a1UrgyTaSYo?&autoplay=1"  id="PayIFrame">  <!-
 
 				<table id='foot'>
 					<tr class="detail ex2">
-						<th>번호</th>
+						<th class='tableH'>번호</th>
 						<td><input type="text" id="no"></td>
 					</tr>
 					<tr>
-						<th>제목</th>
+						<th class='tableH'>제목</th>
 						<td><input type="text" id="title"></td>
 					</tr>
 					<tr>
-						<th>내용</th>
+						<th class='tableH'>내용</th>
 						<td><textarea id="content"></textarea></td>
 					</tr>
 					<tr>
-						<th>작성자</th>
+						<th class='tableH'>작성자</th>
 						<td><input type="text" id="writer"></td>
 					</tr>
 					<tr class="create">
-						<th>암호</th>
+						<th class='tableH'>암호</th>
 						<td><input type="password" id="password"></td>
 					</tr>
 					<tr class="detail">
-						<th>등록일</th>
+						<th class='tableH'>등록일</th>
 						<td><input type="text" id="date"></td>
 					</tr>
 				</table>
