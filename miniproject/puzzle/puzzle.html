@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>puzzle</title>
+<style>
+div {
+	border: 1px solid black;
+	height: 100px;
+	width: 100px;
+}
+</style>
+
+
+</head>
+<body>
+	<table border='0'>
+		<tr>
+			<th><div>**</div></th>
+			<th><div>**</div></th>
+		</tr>
+		<tr>
+			<td><div id='s1'>11</div></td>
+			<td><div id='s2'>22</div></td>
+		</tr>
+		<tr>
+			<td><div id='s3'>33</div></td>
+			<td><div id='s4'>44</div></td>
+		</tr>
+
+	</table>
+	<button id='btn1'>시작</button>
+	<p id='demo'></p>
+	<script src='jquery-1.11.1.js'></script>
+	<script>
+	"use strict"
+	
+	$('#btn1').click(function(){
+		var x = Math.floor((Math.random() * 10) % 2);
+	      
+	    console.log(x);
+	    $('td').each(function(i, e){
+	    	$('td').attr('value', );
+	    });
+	    
+	    
+	    $('td').each(function(i,e){
+	    	console.log(i, $('td').attr('value'));
+	    });
+	});
+	
+
+	</script>
+</body>
+</html>
