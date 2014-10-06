@@ -33,23 +33,16 @@ div {
 	<p id='demo'></p>
 	<script src='jquery-1.11.1.js'></script>
 	<script>
-	"use strict"
-	
-	$('#btn1').click(function(){
-		var x = Math.floor((Math.random() * 10) % 2);
-	      
-	    console.log(x);
-	    $('td').each(function(i, e){
-	    	$('td').attr('value', );
-	    });
-	    
-	    
-	    $('td').each(function(i,e){
-	    	console.log(i, $('td').attr('value'));
-	    });
-	});
-	
+		"use strict"
 
+		$('#btn1').click(function() {
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			/*   console.log(x); */
+			$('td').attr('value', x);
+
+			 console.log($('td').attr('value')); 
+		});
 	</script>
 </body>
 </html>
