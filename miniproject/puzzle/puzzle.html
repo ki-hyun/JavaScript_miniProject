@@ -97,51 +97,55 @@ createTable();
 				      
 				    } 
 			 */
+			 
+			for(i=0; i<totalCellCount;i++){
 
 			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s' +i).addClass('ok');
+			}  else {
+						$('#s' +i).css('background-color', 'white');
+					} 
+			;
+			 
+		/* 	var x = Math.floor((Math.random() * 10) % 2);
 
 			if (x == 1) {
 				$('#s1').addClass('ok');
 			} /* else {
-						$('#s1').css('background-color', 'white');
-					} */
+						$('#s2').css('background-color', 'white');
+					} 
 			;
-
 			var x = Math.floor((Math.random() * 10) % 2);
 
 			if (x == 1) {
 				$('#s2').addClass('ok');
-			} /* else {
-						$('#s2').css('background-color', 'white');
-					} */
+			}  else {
+						$('#s3').css('background-color', 'white');
+					} 
 			;
 			var x = Math.floor((Math.random() * 10) % 2);
 
 			if (x == 1) {
 				$('#s3').addClass('ok');
-			} /* else {
-						$('#s3').css('background-color', 'white');
-					} */
-			;
-			var x = Math.floor((Math.random() * 10) % 2);
-
-			if (x == 1) {
-				$('#s4').addClass('ok');
-			} /* else {
+			}  else {
 						$('#s4').css('background-color', 'white');
-					} */
+					} 
 			;
-
+ */
 			window.setTimeout(function() {
 
-				$('td').css('background-color', 'white');
+				$('div').css('background-color', 'white');
 
 			}, 500);
+			}
 
 			console.log($('.ok').length);
-
+			 
+			for(i=0; i<totalCellCount;i++){
 			
-			 $('#s1').click(function(event) {
+			 $('#s'+i).click(function(event) {
 			      var element = $(this);
 			      if (element.is('.ok')) {
 			        element.css('background-color', 'blue')
@@ -150,7 +154,17 @@ createTable();
 			      }
 
 			    });
+			}
+/* 
+			    $('#s1').click(function(event) {
+			      var element = $(this);
+			      if (element.is('.ok')) {
+			        element.css('background-color', 'blue')
+			      } else {
+			        element.css('background-color', 'red')
+			      }
 
+			    });
 			    $('#s2').click(function(event) {
 			      var element = $(this);
 			      if (element.is('.ok')) {
@@ -160,6 +174,7 @@ createTable();
 			      }
 
 			    });
+
 			    $('#s3').click(function(event) {
 			      var element = $(this);
 			      if (element.is('.ok')) {
@@ -168,20 +183,10 @@ createTable();
 			        element.css('background-color', 'red')
 			      }
 
-			    });
-
-			    $('#s4').click(function(event) {
-			      var element = $(this);
-			      if (element.is('.ok')) {
-			        element.css('background-color', 'blue')
-			      } else {
-			        element.css('background-color', 'red')
-			      }
-
+			 */
 			
 			
-			
-		});
+/* 		}); */
 
 	
 			$(function() {
@@ -193,7 +198,7 @@ createTable();
 					if (count == $('.ok').length) {
 						alert('good');
 						
-						
+						$('#tileTable').empty();
 						
 						
 						quizLength++;
