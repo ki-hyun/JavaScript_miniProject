@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>puzzle</title>
+<style>
+
+
+body {background-image: url(puzzleback1.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;}
+table, td {background-color: transparent;} 
+/* html { 
+ background: url(images/bg.jpg) no-repeat center center fixed; 
+ -webkit-background-size: cover;
+ -moz-background-size: cover;
+ -o-background-size: cover;
+ background-size: cover;
+}
+ */
+#main {
+/*   border: 1px solid black; */
+  margin: 0px auto;
+  width: 600px;
+  height: 600px;
+}
+
+#tileTable {
+/*   border: 1px solid red; */
+/*   border: 1px solid gray; */
+  margin: 100px auto;
+  padding: 2px;
+}
+
+.cell {
+  float: left;
+  width: 50px;
+  height: 50px;
+  margin: 1px;
+  border: 1px solid black;
+}
+
+.cellOver {
+  background-color: #008000;
+}
+
+.cellSelected {
+  background-color: greenyellow;
+}
+
+.cellFailure {
+  background-color: red;
+}
+
+.ok {
+  background-color: grey;
+}
+
+.no {
+  background-color: red;
+}
+</style>
+<script src='jquery-1.11.1.js'></script>
+</head>
+<body id='bd'>
+<div id='main'>
+<div id='tileTable'>
+
+</div>
+<button id='btn1'>시작</button>
+</div>
+  
+<script>
+var tileTable = $('#tileTable');
+var quizLength = 2;
+var totalCellCount;
+
+var randomNoCount = 2;
+var quizNoMap;
+var userClickedCount = 0;
+
+
+function createTable(){
+	var tableSize = quizLength * 54;
+	totalCellCount = quizLength * quizLength;
+$('#tileTable')
+  .css('width', tableSize + 'px')
+  .css('height', tableSize + 'px');
+
+for (var i = 0; i < totalCellCount; i++) {
+  $('<div>').attr('id', 's'+ i)
+    .addClass('cell')
+    .appendTo(tileTable);
+}
+}
+
+createTable();
+		 
+		$('#btn1').click(function() {
+
+			/* 		   
+				    var arr1 = [s1, s2, s3, s4];
+				    
+				    for(var i=0;i<49;i++){
+				      arr1[i]= Math.floor((Math.random() * 10) % 2);
+
+				      if (arr1[i] == 1) {
+				          $('arr[i]').addClass('ok');
+				        } else {
+				          $('arr[i]').css('background-color', 'white');
+				        }
+				        ;
+				      
+				    } 
+			 */
+			 
+			for(i=0; i<totalCellCount;i++){
+
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s' +i).addClass('ok');
+			}  else {
+						$('#s' +i).css('background-color', 'white');
+					} 
+			;
+			 
+		/* 	var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s1').addClass('ok');
+			} /* else {
+						$('#s2').css('background-color', 'white');
+					} 
+			;
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s2').addClass('ok');
+			}  else {
+						$('#s3').css('background-color', 'white');
+					} 
+			;
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s3').addClass('ok');
+			}  else {
+						$('#s4').css('background-color', 'white');
+					} 
+			;
+ */
+			window.setTimeout(function() {
+
+				$('.cell').css('background-color', 'white');
+
+			}, 500);
+			}
+
+			console.log($('.ok').length);
+			 
+			for(i=0; i<totalCellCount;i++){
+			
+			 $('#s'+i).click(function(event) {
+			      var element = $(this);
+			      if (element.is('.ok')) {
+			        element.css('background-color', 'blue')
+			      } else {
+			        element.css('background-color', 'red');
+			      }
+
+			    });
+			}
+/* 
+			    $('#s1').click(function(event) {
+			      var element = $(this);
+			      if (element.is('.ok')) {
+			        element.css('background-color', 'blue')
+			      } else {
+			        element.css('background-color', 'red')
+			      }
+
+			    });
+			    $('#s2').click(function(event) {
+			      var element = $(this);
+			      if (element.is('.ok')) {
+			        element.css('background-color', 'blue')
+			      } else {
+			        element.css('background-color', 'red')
+			      }
+
+			    });
+
+			    $('#s3').click(function(event) {
+			      var element = $(this);
+			      if (element.is('.ok')) {
+			        element.css('background-color', 'blue')
+			      } else {
+			        element.css('background-color', 'red')
+			      }
+
+			 */
+			
+			
+/* 		}); */
+
+	
+			$(function() {
+				var count = 0;
+
+				$('.ok').click(function() {
+					count += 1;
+
+					if (count == $('.ok').length) {
+						alert('good');
+
+						$('#tileTable').empty();
+						
+						
+						quizLength++;
+						createTable();
+						
+					}
+					
+					if 	(totalCellCount == 9) {
+						$('#bd').css({'background-image':'url(puzzleback2.jpg)'}); 					
+						
+					}  else if (totalCellCount == 16) {
+						$('#bd').css({'background-image':'url(puzzleback4.jpg)'});
+				
+				
+					
+					}
+					else if (totalCellCount == 25) {
+					
+						$('#bd').css({'background-image':'url(puzzleback8.jpg)'});
+					
+					}
+					else if (totalCellCount == 36) {
+						
+						
+						$('#bd').css({'background-image':'url(puzzleback9.jpg)'});
+					
+					}
+										
+					
+					
+					
+				});
+			});
+
+		});
+
+		/* 		$('td').click(function(event){
+		 $(this).css('background-color', 'lightyellow')
+		 }); */
+
+		/* 
+		$('#s1').attr('value', x);
+
+		   console.log($('td').attr('value')); 
+		
+		 */
+
+		/*   $(function() {
+		   $('td[value=1]').css('background-color', 'red')	  
+		  }); */
+
+		/* 	       console.log($('arr[0]').attr('value'));
+			
+			});
+			
+		 */
+
+		/* 
+		
+		 $(function() {
+		
+		 $('#s1').click(function(event){ 
+		 var element = $(this);
+		 if (element.is('.ok')) {
+		 $(this).css('background-color','blue')
+		 } else {
+		 $('#s1').addClass('no')
+		 }
+		
+		
+		 $('#s2').click(function(event){ 
+		 var element = $(this);
+		 if (element.is('.ok')) {
+		 $(this).css('background-color','blue')
+		 } else {
+		 $(this).addClass('no')
+		 }
+		 });
+		 $('#s3').click(function(event){ 
+		 var element = $(this);
+		 if (element.is('.ok')) {
+		 $(this).css('background-color','blue')
+		 } else {
+		 $(this).addClass('no')
+		 }
+		 });
+		 $('#s4').click(function(event){ 
+		 var element = $(this);
+		 if (element.is('.ok')) {
+		 $(this).css('background-color','blue')
+		 } else {
+		 $(this).addClass('no')}
+		 });
+		
+		
+		
+		
+		 console.log($('.ok').length);
+		
+		
+		
+		
+		
+		
+		
+		 (function () {
+		 var count = 0;
+
+		 $('.ok').click(function () {
+		 count += 1;
+
+		 if (count == $('.ok').length) {
+		 alert('good');
+		 }
+		 });
+		 }); 
+		
+		
+		
+		
+		
+		
+		 }); 
+		
+		 });
+		 */
+	</script>
+</body>
+</html>
