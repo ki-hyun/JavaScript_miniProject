@@ -4,10 +4,18 @@
 <meta charset="UTF-8">
 <title>puzzle</title>
 <style>
-div {
+td {
 	border: 1px solid black;
 	height: 100px;
 	width: 100px;
+}
+
+
+.ok{
+  background-color : grey;
+}
+.no{
+  background-color : white;
 }
 </style>
 
@@ -16,33 +24,191 @@ div {
 <body>
 	<table border='0'>
 		<tr>
-			<th><div>**</div></th>
-			<th><div>**</div></th>
+			<th><div></div></th>
+			<th><div></div></th>
 		</tr>
 		<tr>
-			<td><div id='s1'>11</div></td>
-			<td><div id='s2'>22</div></td>
+			<td id='s1'>11</td>
+			<td id='s2'>22</td>
 		</tr>
 		<tr>
-			<td><div id='s3'>33</div></td>
-			<td><div id='s4'>44</div></td>
+			<td id='s3'>33</td>
+			<td id='s4'>44</td>
 		</tr>
 
 	</table>
 	<button id='btn1'>시작</button>
-	<p id='demo'></p>
 	<script src='jquery-1.11.1.js'></script>
 	<script>
 		"use strict"
 
+		/* 		$('#btn1').click(function() {
+		 var x = Math.floor((Math.random() * 10) % 2);
+
+		 console.log(x); 
+		 $('td').attr('value', x);
+
+		 console.log($('td').attr('value')); 
+		 });
+		
+		
+		
+		 */
+
+			 
+		
+/* 		
+		 $(function(){
+		
+		 $('td').hover(function(event){
+			 $(this).css('background-color', 'lightyellow');
+		 }  ,  function(event){
+				 $(this).css('background-color', 'white'); 
+			 } );
+			 
+			 
+		 }); */
+		
+
+
 		$('#btn1').click(function() {
+
+			
+			
+	/* 		   
+		    var arr1 = [s1, s2, s3, s4];
+		    
+		    for(var i=0;i<49;i++){
+		      arr1[i]= Math.floor((Math.random() * 10) % 2);
+
+		      if (arr1[i] == 1) {
+		          $('arr[i]').addClass('ok');
+		        } else {
+		          $('arr[i]').css('background-color', 'white');
+		        }
+		        ;
+		      
+		    } 
+			 */
+			
+			
+			
+			
+			
 			var x = Math.floor((Math.random() * 10) % 2);
 
-			/*   console.log(x); */
-			$('td').attr('value', x);
+			if (x == 1) {
+				$('#s1').addClass('ok');
+			} else {
+				$('#s1').css('background-color', 'white');
+			}
+			;
 
-			 console.log($('td').attr('value')); 
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s2').addClass('ok');
+			} else {
+				$('#s2').css('background-color', 'white');
+			}
+			;
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s3').addClass('ok');
+			} else {
+				$('#s3').css('background-color', 'white');
+			}
+			;
+			var x = Math.floor((Math.random() * 10) % 2);
+
+			if (x == 1) {
+				$('#s4').addClass('ok');
+			} else {
+				$('#s4').css('background-color', 'white');
+			}
+			; 
+
+			window.setTimeout(function(){
+				
+				$('td').css('background-color', 'white');
+				
+			}, 1000);
+			
+			
+			
+			
+			
 		});
+		
+		
+		
+		
+		$('td').click(function(event){
+			$(this).css('background-color', 'lightblue')
+		});
+		
+		
+		
+		  $('#s1').click(function(){ 
+			  var element = $(this);
+	     if (element.is('.ok')) {
+				  $('#s1').css('background-color','blue')
+			  } else {
+				  $('#s1').addClass('no')
+			  }
+		 
+		  
+		    $('#s2').click(function(){ 
+		        var element = $(this);
+		       if (element.is('.ok')) {
+		          $('#s2').css('background-color','blue')
+		        } else {
+		          $('#s2').addClass('no')
+		        }
+		      });
+		    $('#s3').click(function(){ 
+		        var element = $(this);
+		       if (element.is('.ok')) {
+		          $('#s3').css('background-color','blue')
+		        } else {
+		          $('#s3').addClass('no')
+		        }
+		      });
+		    $('#s4').click(function(){ 
+		        var element = $(this);
+		       if (element.is('.ok')) {
+		          $('#s4').css('background-color','blue')
+		        } else {
+		          $('#s4').addClass('no')}
+		        });
+		       
+		      
+		    	  
+		    	  
+		    	  console.log($('.ok').length);
+		       
+		      
+		       
+		       
+		      });
+		
+		/* 
+		$('#s1').attr('value', x);
+
+		   console.log($('td').attr('value')); 
+		
+		 */
+
+		/*   $(function() {
+		   $('td[value=1]').css('background-color', 'red')	  
+		  }); */
+
+		/* 	       console.log($('arr[0]').attr('value'));
+			
+			});
+			
+		 */
 	</script>
 </body>
 </html>
