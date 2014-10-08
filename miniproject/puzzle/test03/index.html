@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>puzzle</title>
+<style>
+
+body {background-image: url(puzzleback1.jpg);
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: right bottom;}
+table, td {background-color: transparent;} 
+
+
+#gameStart {
+	position: relative;
+	margin-left:30px;
+	
+}
+#tileTable {
+	position : absolute;
+	background-color: white;
+	margin: 20px;
+	padding: 5px;
+}
+.cell {
+	float: left;
+	width: 60px;
+	height: 60px;
+	margin: 5px;
+	border: 2px solid lightgray;
+	border-radius: 5px;
+}
+
+.default {
+	background-color: white;
+}
+
+.ok {
+	background-color: lightgray;
+}
+
+</style>
+<script src='jquery-1.11.1.js'></script>
+</head>
+<body id='bd'>
+	<div id='main'>
+		<div id='tileTable'></div> 
+		<div id='gameStart'>
+		<SELECT class=first id=sltLv>
+        <OPTION VALUE=2>Lv.1</OPTION>
+        <OPTION VALUE=3>Lv.2</OPTION>
+        <OPTION VALUE=4>Lv.3</OPTION>
+        <OPTION VALUE=5>Lv.4</OPTION>
+        <OPTION VALUE=6>Lv.5</OPTION>
+    </SELECT>
+		<button class=first id='btnSelect'>START</button>
+	<button style=display:none id='btnGo'>GO</button></div>
+	</div>
+
+	<script>
+		var tileTable = $('#tileTable');
+		var quizLength;
+		var totalCellCount;
+		var quizNoMap;
+		
+		
+
+		function createTable() {
+			var tableSize = quizLength * 74;
+			totalCellCount = quizLength * quizLength;
+			$('#tileTable').css('width', tableSize + 'px')
+						   .css('height', tableSize + 'px');
+
+			for (var i = 0; i < totalCellCount; i++) {
+				$('<div>').attr('id', 's' + i).addClass('cell').appendTo(
+						tileTable);
+			}
+		}
+		
+		function setTable() {
+			for (i = 0; i < totalCellCount; i++) {
+
+				var x = Math.floor((Math.random() * 10) % 2);
+
+				if (x == 1) {
+					$('#s' + i).addClass('ok');
+				} else {
+					$('#s' + i).css('background-color', 'white');
+				}
+			}
+		}
+
+		$('#btnSelect').click(function() {
+			$('.first').css('display','none');
+			$('#btnGo').css('display','');
+			quizLength= $("#sltLv").val();
+			createTable();
+		});
+		$('#btnGo').click(function() {
+			
+			console.log($(sltLv).val());
+			$('#tileTable').empty();
+			createTable();
+			setTable();
+			
+			if ($('.ok').length==0){
+				$('.cell').removeClass('ok');
+				setTable();
+			}
+
+			
+			window.setTimeout(function() { $('div').css('background-color', 'white'); }, 500);
+
+			console.log($('.ok').length);
+			
+			var count = 0;
+			var userClickedCount = 0;
+
+			$('.cell').click(function(event) {
+				
+				var element = $(this);
+				if (element.is('.selected')) {
+				} else{
+					element.addClass('selected');
+				if (element.is('.ok')) {
+					element.css('background-color', '#01DF01')
+					count++;
+				} else {
+					element.css('background-color', 'red')
+				}
+				userClickedCount++;
+				console.log('U' + userClickedCount);
+
+				if (userClickedCount == $('.ok').length) {
+					if (userClickedCount == count) {
+						alert('good');
+						quizLength++;
+					} else {
+						alert('nono');
+					}
+
+					$('#tileTable').empty();
+
+					createTable();
+					console.log(count);
+
+				}
+				}
+
+		          if  (totalCellCount == 9) {
+		              $('#bd').css({'background-image':'url(puzzleback4.jpg)'});          
+		              
+		            }  else if (totalCellCount == 16) {
+		              $('#bd').css({'background-image':'url(puzzleback8.jpg)'});
+		          
+		          
+		            
+		            }
+		            else if (totalCellCount == 25) {
+		            
+		              $('#bd').css({'background-image':'url(puzzleback9.jpg)'});
+		            
+		            }
+		            else if (totalCellCount == 36) {
+		              
+		              
+		              $('#bd').css({'background-image':'url(puzzleback.jpg)'});
+		            
+		            }
+		                    
+				
+				
+				
+			});
+
+		});
+	</script>
+</body>
+</html>
